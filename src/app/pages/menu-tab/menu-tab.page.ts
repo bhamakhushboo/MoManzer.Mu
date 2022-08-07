@@ -158,7 +158,6 @@ export class MenuTabPage implements OnInit {
   }
 
   onProductClick(id) {
-  this.router.navigate(['/menu-tab/view-product/' + id]);
-
+    this.router.navigate([`/menu-tab/view-product/` + id]);
   }
 }

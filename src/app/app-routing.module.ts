@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   // {
   //   path: 'location-tab',
@@ -12,15 +12,33 @@ const routes: Routes = [
   // },
   {
     path: 'menu-tab',
-    loadChildren: () => import('./menu-tab/menu-tab.module').then( m => m.MenuTabPageModule)
+    loadChildren: () => import('./pages/menu-tab/menu-tab.module').then( m => m.MenuTabPageModule)
   },
+
+  {
+    path: 'menu-tab',
+    children: [
+      {path:'', loadChildren: () => import('./pages/menu-tab/menu-tab.module').then( m => m.MenuTabPageModule)},
+      {path:':id', loadChildren: () => import('src/app/pages/view-product/view-product.module').then( m => m.ViewProductPageModule) }
+    ]
+  },
+
+    // {
+    //   path: 'view-product',
+    //   loadChildren: () => import('./menu-tab/view-product/view-product.module').then( m => m.ViewProductPageModule)
+    // },
+
   {
     path: 'cart-tab',
-    loadChildren: () => import('./cart-tab/cart-tab.module').then( m => m.CartTabPageModule)
+    loadChildren: () => import('./pages/cart-tab/cart-tab.module').then( m => m.CartTabPageModule)
   },
   {
     path: 'profile-tab',
-    loadChildren: () => import('./profile-tab/profile-tab.module').then( m => m.ProfileTabPageModule)
+    loadChildren: () => import('./pages/profile-tab/profile-tab.module').then( m => m.ProfileTabPageModule)
+  },
+  {
+    path: 'view-product',
+    loadChildren: () => import('./pages/view-product/view-product.module').then( m => m.ViewProductPageModule)
   }
 ];
 @NgModule({

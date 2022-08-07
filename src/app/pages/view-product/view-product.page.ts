@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CacheKey, CachingService } from 'src/app/services/caching.service';
-import { MenulistService } from 'src/app/services/menulist.service';
 import { Menu } from 'src/app/interfaces/menu';
+import { CacheKey, CachingService } from 'src/app/services/caching.service';
+import { filter } from 'rxjs/operators';
+import { MenulistService } from 'src/app/services/menulist.service';
 
 @Component({
   selector: 'app-view-product',
@@ -12,6 +13,7 @@ import { Menu } from 'src/app/interfaces/menu';
 export class ViewProductPage implements OnInit {
 
   public menu: Menu;
+  product = [];
 
   variants = [
     {
@@ -48,15 +50,31 @@ export class ViewProductPage implements OnInit {
     {name: 'Boondi raita', price: 3 }, {name: 'Mango lassi', price: 5 },
     {name: 'Masala papad', price: 2 }, {name: 'French fries', price: 10 }, {name: 'Coriander chutney', price: 5 }
   ];
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(
+    private activatedRoute: ActivatedRoute,
     private cachingService: CachingService,
-    private menulistService: MenulistService
-    ) { }
+    private menulistservice: MenulistService
+  ) { }
 
   ngOnInit() {
+
     this.activatedRoute.paramMap.subscribe(async paramMap => {
-      console.log(paramMap.get('id'));
-    })
+      if(paramMap.has('id')) {
+
+        this.menulistservice.getProduct(paramMap.get('id')).subscribe((result) => {
+          const resultproduct = result as Menu[];
+          this.cachingService.set(CacheKey.AllProducts, resultproduct);
+          this.product = resultproduct;
+
+        });
+
+
+     }
+    });
+
+
+
+
   }
 
 }

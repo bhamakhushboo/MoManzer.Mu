@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ProfileTabPage } from './profile-tab.page';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from '../../components/login/login.component';
 
 const routes: Routes = [
   {

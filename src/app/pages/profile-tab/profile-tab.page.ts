@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { ThemeComponent } from './theme/theme.component';
+import { ThemeComponent } from '../../components/theme/theme.component';
 
 @Component({
   selector: 'app-profile-tab',
@@ -10,8 +10,8 @@ import { ThemeComponent } from './theme/theme.component';
 export class ProfileTabPage implements OnInit {
 
   selectedSegment = 'login';
-  loggedIn = false;
-  constructor(public popoverController: PopoverController) { 
+  public loggedIn = false;
+  constructor(public popoverController: PopoverController) {
     if(this.loggedIn) {
       this.selectedSegment = 'myprofile';
     }
@@ -32,4 +32,10 @@ export class ProfileTabPage implements OnInit {
     });
     return await popover.present();
   }
+
+  Redirect(app){
+    console.log("fb");
+    window.open('android-app://com.google.android.youtube',"_system");
+}
+
 }

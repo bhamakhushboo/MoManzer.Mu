@@ -11,14 +11,13 @@
       {{category}}
     </ion-segment-button>
   </ion-segment>
-  <ion-card *ngFor="let product of viewProducts">
-
-    <ion-card-content class="no-padding" (click)="onProductClick(product.id)">
+  <ion-card *ngFor="let product of viewProducts" (click)="onProductClick(product.id)">
+  <ion-card-content class="no-padding" >
       <img [src]="product.imgPath" height="200px" width="100%" alt="image">
     </ion-card-content>
     <ion-card-header>
       <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
-      <ion-card-title>${{product.price}}</ion-card-title>
+      <ion-card-title>Rs{{product.price}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 </ion-content>

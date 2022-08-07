@@ -10,8 +10,9 @@ const routes: Routes = [
   },
   {
     path: 'view-product',
-    loadChildren: () => import('./view-product/view-product.module').then( m => m.ViewProductPageModule)
+    loadChildren: () => import('src/app/pages/view-product/view-product.module').then( m => m.ViewProductPageModule)
   },
+
 ];
 
 @NgModule({

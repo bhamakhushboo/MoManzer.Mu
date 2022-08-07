@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Customer } from '../interfaces/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,16 @@ export class MenulistService {
   }
 
   getProduct(id: string) {
-    return this.http['get'](`${this.baseUrl}deliveries/${id}`);
+    return this.http['get'](`${this.baseUrl}allproducts/${id}`);
   }
+
+  AddNewCustomer(customer: Customer) {
+    return this.http['post'](`${this.baseUrl}customer`, customer);
+  }
+
+  getCustomer(id: string){
+    return this.http['get'](`${this.baseUrl}customer/${id}`);
+  }
+
 
 }

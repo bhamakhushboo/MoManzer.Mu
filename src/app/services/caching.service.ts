@@ -35,5 +35,6 @@ export enum CacheKey {
   DessertsProducts = 'dessertsProducts',
   SnacksProducts = 'snacksProducts',
   DrinksProducts = 'drinksProducts',
-
+  AllProducts = 'allproducts',
+  Customer = 'customer'
 }

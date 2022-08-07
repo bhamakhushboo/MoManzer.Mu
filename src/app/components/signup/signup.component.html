@@ -1,0 +1,30 @@
+<ion-card>
+  <div class="ion-padding">
+    <form [formGroup]="signUpForm" (onSubmit)="SignUp()">
+
+    <ion-item>
+      <ion-label position="floating"  >Enter Mobile Number</ion-label>
+      <ion-input type="tel" formControlName="id"></ion-input>
+    </ion-item>
+    <div class="small-vertical-height"></div>
+    <ion-item>
+      <ion-label position="floating" >Enter Email Id</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="small-vertical-height"></div>
+    <ion-item>
+      <ion-label position="floating">Enter Date of Birth</ion-label>
+      <ion-input  formControlName="dob"></ion-input>
+    </ion-item>
+    <div class="small-vertical-height"></div>
+    <div class="small-vertical-height"></div>
+    <ion-item>
+      <ion-label position="floating" >Enter Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="vertical-height"></div>
+</form>
+    <ion-button expand="full" fill="solid" (click)="SignUp()">Signup</ion-button>
+
+  </div>
+</ion-card>

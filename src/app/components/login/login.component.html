@@ -1,20 +1,22 @@
 <ion-card>
   <div class="ion-padding">
+    <form [formGroup]="loginForm" (onSubmit)="Login()">
     <ion-item>
       <ion-label position="floating">Enter Mobile Number</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="tel" formControlName="id"></ion-input>
     </ion-item>
     <div class="small-vertical-height"></div>
     <ion-item>
       <ion-label position="floating">Enter Password</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
     <div class="small-vertical-height"></div>
     <div class="reverse-flex">
       <ion-label>Forgot password ?</ion-label>
     </div>
     <div class="vertical-height"></div>
-    <ion-button expand="full" fill="solid">Login</ion-button>
+  </form>
+    <ion-button expand="full" (click)="Login()" fill="solid">Login</ion-button>
   </div>
 </ion-card>
 <ion-grid>
@@ -25,14 +27,14 @@
   </ion-row>
   <ion-row>
     <ion-col class="ion-text-right">
-      <ion-button color="primary">
+      <ion-button color="primary" (click)="Redirect('fb')">
         <ion-icon slot="start" name="logo-facebook"></ion-icon>
         Facebook
       </ion-button>
     </ion-col>
     <ion-col class="ion-text-left">
 
-      <ion-button color="danger">
+      <ion-button color="danger" (click)="Redirect('google')">
         <ion-icon slot="start" name="logo-google"></ion-icon>
         Google
       </ion-button>

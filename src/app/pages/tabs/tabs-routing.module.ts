@@ -44,7 +44,7 @@ const routes: Routes = [
             path: '',
             loadChildren: () => import('../profile-tab/profile-tab.module').then( m => m.ProfileTabPageModule)
           }
-        ]        
+        ]
       },
       {
         path: '',
