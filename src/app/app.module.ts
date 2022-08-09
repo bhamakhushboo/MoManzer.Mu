@@ -19,4 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   bootstrap: [AppComponent],
   exports: [CommonModule, FormsModule,ReactiveFormsModule ]
 })
-export class AppModule {}
+export class AppModule {
+
+
+
+}

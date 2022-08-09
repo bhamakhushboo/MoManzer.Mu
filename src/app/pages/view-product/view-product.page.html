@@ -48,5 +48,5 @@
 
 </ion-content>
 <ion-footer>
-  <ion-button class="no-border-radius" expand="full" no-margin fill="solid" expand="block">Add to cart</ion-button>
+  <ion-button class="no-border-radius" expand="full" no-margin fill="solid" name="add_btn" expand="block" [disabled]="loggedIn === false">{{ btn_txt }}</ion-button>
 </ion-footer>

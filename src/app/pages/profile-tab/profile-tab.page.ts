@@ -33,9 +33,5 @@ export class ProfileTabPage implements OnInit {
     return await popover.present();
   }
 
-  Redirect(app){
-    console.log("fb");
-    window.open('android-app://com.google.android.youtube',"_system");
-}
 
 }
